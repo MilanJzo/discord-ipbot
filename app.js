@@ -11,6 +11,13 @@ const PORT = process.env.PORT || 3000;
 const activeGames = {};
 
 /**
+ * Health check endpoint for Docker
+ */
+app.get("/health", (req, res) => {
+	res.status(200).json({ status: "ok", timestamp: new Date().toISOString() });
+});
+
+/**
  * Interactions endpoint URL where Discord will send HTTP requests
  * Parse request body and verifies incoming requests using discord-interactions package
  */

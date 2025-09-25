@@ -1,0 +1,42 @@
+services:
+    discord-bot:
+        build: .
+        ports:
+            - "3000:3000"
+        environment:
+            - NODE_ENV=production
+            - APP_ID=${APP_ID}
+            - PUBLIC_KEY=${PUBLIC_KEY}
+            - DISCORD_TOKEN=${DISCORD_TOKEN}
+            - PORT=3000
+        env_file:
+            - .env
+        restart: unless-stopped
+        volumes:
+            - .:/app
+            - /app/node_modules
+        command: npm start
+        networks:
+            - discord-bot-network
+
+    # Production version (uncomment to use)
+    # discord-bot-prod:
+    #   build: .
+    #   ports:
+    #     - "3000:3000"
+    #   environment:
+    #     - NODE_ENV=production
+    #     - APP_ID=${APP_ID}
+    #     - PUBLIC_KEY=${PUBLIC_KEY}
+    #     - DISCORD_TOKEN=${DISCORD_TOKEN}
+    #     - PORT=3000
+    #   env_file:
+    #     - .env
+    #   restart: unless-stopped
+    #   command: npm start
+    #   networks:
+    #     - discord-bot-network
+
+networks:
+    discord-bot-network:
+        driver: bridge
