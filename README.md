@@ -22,6 +22,18 @@ Before setting up the bot, you need:
 3. **Node.js**: Version 18+ (for local development)
 4. **Docker**: Docker Desktop (for containerized deployment)
 
+## Deployment
+
+This bot uses HTTP interactions and requires a public endpoint. Set up your Discord app's Interactions Endpoint URL to point to `https://your-domain.com/interactions`.
+
+### Setting up Interactions Endpoint
+
+1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
+2. Select your application
+3. Go to **General Information**
+4. Set **Interactions Endpoint URL** to: `https://your-domain.com/interactions`
+5. Discord will verify the endpoint - make sure your bot is running and accessible
+
 ## Setup
 
 This should also be possible using any other package manager like `yarn` or `pnpm`.
@@ -71,18 +83,6 @@ docker-compose down
 # Rebuild and restart
 docker-compose up --build -d
 ```
-
-## Deployment
-
-This bot uses HTTP interactions and requires a public endpoint. Set up your Discord app's Interactions Endpoint URL to point to `https://your-domain.com/interactions`.
-
-### Setting up Interactions Endpoint
-
-1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
-2. Select your application
-3. Go to **General Information**
-4. Set **Interactions Endpoint URL** to: `https://your-domain.com/interactions`
-5. Discord will verify the endpoint - make sure your bot is running and accessible
 
 ## Troubleshooting
 
