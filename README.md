@@ -13,7 +13,7 @@ This bot appears "offline" in Discord because it uses HTTP interactions rather t
 
 ## Setup
 
-1. download the docker image from [Releases](https://github.com/milanjzo/discord-ip-bot/releases)
+1. download the docker image from [Releases](https://github.com/MilanJzo/discord-ipbot/releases)
 
 2. Load the image:
 
