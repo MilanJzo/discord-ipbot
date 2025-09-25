@@ -24,13 +24,20 @@ Before setting up the bot, you need:
 
 ## Setup
 
-1. Install dependencies:
+1. Clone the repository:
 
 ```bash
+git clone https://github.com/MilanJzo/discord-ipbot.git
+```
+
+2. Install dependencies:
+
+```bash
+cd discord-ipbot
 npm install
 ```
 
-2. Create a `.env` file with your Discord app credentials:
+3. Create a `.env` file with your Discord app credentials:
 
 ```env
 APP_ID=your_app_id
@@ -38,13 +45,13 @@ PUBLIC_KEY=your_public_key
 DISCORD_TOKEN=your_bot_token
 ```
 
-3. Register the slash commands:
+4. Register the slash commands:
 
 ```bash
 npm run register
 ```
 
-4. Start the bot (with docker):
+5. Start the bot (with docker):
 
 ```bash
 docker-compose up --build -d
