@@ -9,6 +9,9 @@ This bot appears "offline" in Discord because it uses HTTP interactions rather t
 ## Features
 
 -   `/test` - Basic test command that responds with "hello world"
+-   `/about` - Information about the bot, its purpose, features, and technology stack
+-   `/version` - Displays the bot version, Node.js version, platform, OS release
+-   `/stats` - View bot statistics and performance metrics
 -   `/serverip` - Get the public IP address of the server this bot is running on
 
 ## Setup
