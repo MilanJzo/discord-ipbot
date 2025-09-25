@@ -16,6 +16,8 @@ This bot appears "offline" in Discord because it uses HTTP interactions rather t
 
 ## Setup
 
+1. Download the Docker image from [Releases](https://github.com/MilanJzo/discord-ipbot/releases)
+
 2. Load the image:
 
 ```bash
@@ -35,9 +37,7 @@ docker run -d -p 3000:3000 --env-file .env discord-ipbot:latest
 ### Common Issues
 
 1. **Bot appears offline**: This is normal for HTTP interaction bots
-2. **Commands not working**: Ensure you've run `npm run register` and set the correct Interactions Endpoint URL
-3. **403 Forbidden**: Check your `PUBLIC_KEY` is correct
-4. **Health check failing**: Ensure port 3000 is accessible
+2. **Health check failing**: Ensure port 3000 is accessible
 
 ### Debug Commands
 
@@ -47,7 +47,4 @@ curl http://localhost:3000/health
 
 # View Docker logs
 docker-compose logs -f discord-bot
-
-# Test slash command registration
-npm run register
 ```
