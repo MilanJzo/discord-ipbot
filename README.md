@@ -24,6 +24,8 @@ Before setting up the bot, you need:
 
 ## Setup
 
+This should also be possible using any other package manager like `yarn` or `pnpm`.
+
 1. Clone the repository:
 
 ```bash
