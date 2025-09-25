@@ -1,121 +1,52 @@
-# Getting Started app for Discord
+# Discord IP Bot
 
-This project contains a basic rock-paper-scissors-style Discord app written in JavaScript, built for the [getting started guide](https://discord.com/developers/docs/getting-started).
+A simple Discord bot that provides server information through slash commands.
 
-![Demo of app](https://github.com/discord/discord-example-app/raw/main/assets/getting-started-demo.gif?raw=true)
+## Features
 
-## Project structure
-
-Below is a basic overview of the project structure:
-
-```
-├── examples    -> short, feature-specific sample apps
-│   ├── app.js  -> finished app.js code
-│   ├── button.js
-│   ├── command.js
-│   ├── modal.js
-│   ├── selectMenu.js
-├── .env.sample -> sample .env file
-├── app.js      -> main entrypoint for app
-├── commands.js -> slash command payloads + helpers
-├── game.js     -> logic specific to RPS
-├── utils.js    -> utility functions and enums
-├── package.json
-├── README.md
-└── .gitignore
-```
-
-## Available Commands
-
-This Discord bot supports the following slash commands:
-
--   `/test` - Basic test command that responds with "hello world" and a random emoji
--   `/challenge` - Challenge to a match of rock paper scissors
+-   `/test` - Basic test command that responds with "hello world"
 -   `/serverip` - Get the public IP address of the server this bot is running on
 
-## Running app locally
+## Setup
 
-Before you start, you'll need to install [NodeJS](https://nodejs.org/en/download/) and [create a Discord app](https://discord.com/developers/applications) with the proper permissions:
+1. Install dependencies:
 
--   `applications.commands`
--   `bot` (with Send Messages enabled)
-
-Configuring the app is covered in detail in the [getting started guide](https://discord.com/developers/docs/getting-started).
-
-### Setup project
-
-First clone the project:
-
-```
-git clone https://github.com/discord/discord-example-app.git
-```
-
-Then navigate to its directory and install dependencies:
-
-```
-cd discord-example-app
+```bash
 npm install
 ```
 
-### Get app credentials
+2. Create a `.env` file with your Discord app credentials:
 
-Fetch the credentials from your app's settings and add them to a `.env` file (see `.env.sample` for an example). You'll need your app ID (`APP_ID`), bot token (`DISCORD_TOKEN`), and public key (`PUBLIC_KEY`).
-
-Fetching credentials is covered in detail in the [getting started guide](https://discord.com/developers/docs/getting-started).
-
-> 🔑 Environment variables can be added to the `.env` file in Glitch or when developing locally, and in the Secrets tab in Replit (the lock icon on the left).
-
-### Install slash commands
-
-The commands for the example app are set up in `commands.js`. All of the commands in the `ALL_COMMANDS` array at the bottom of `commands.js` will be installed when you run the `register` command configured in `package.json`:
-
+```env
+APP_ID=your_app_id
+PUBLIC_KEY=your_public_key
+DISCORD_TOKEN=your_bot_token
 ```
+
+3. Register the slash commands:
+
+```bash
 npm run register
 ```
 
-### Run the app
+4. Start the bot:
 
-After your credentials are added, go ahead and run the app:
-
-```
-node app.js
+```bash
+npm start
 ```
 
-> ⚙️ A package [like `nodemon`](https://github.com/remy/nodemon), which watches for local changes and restarts your app, may be helpful while locally developing.
+## Development
 
-If you aren't following the [getting started guide](https://discord.com/developers/docs/getting-started), you can move the contents of `examples/app.js` (the finished `app.js` file) to the top-level `app.js`.
+For development with auto-restart:
 
-### Set up interactivity
-
-The project needs a public endpoint where Discord can send requests. To develop and test locally, you can use something like [`ngrok`](https://ngrok.com/) to tunnel HTTP traffic.
-
-Install ngrok if you haven't already, then start listening on port `3000`:
-
-```
-ngrok http 3000
+```bash
+npm run dev
 ```
 
-You should see your connection open:
+## Deployment
 
-```
-Tunnel Status                 online
-Version                       2.0/2.0
-Web Interface                 http://127.0.0.1:4040
-Forwarding                    https://1234-someurl.ngrok.io -> localhost:3000
+This bot uses HTTP interactions and requires a public endpoint. Set up your Discord app's Interactions Endpoint URL to point to `https://your-domain.com/interactions`.
 
-Connections                  ttl     opn     rt1     rt5     p50     p90
-                              0       0       0.00    0.00    0.00    0.00
-```
+## Note
 
-Copy the forwarding address that starts with `https`, in this case `https://1234-someurl.ngrok.io`, then go to your [app's settings](https://discord.com/developers/applications).
-
-On the **General Information** tab, there will be an **Interactions Endpoint URL**. Paste your ngrok address there, and append `/interactions` to it (`https://1234-someurl.ngrok.io/interactions` in the example).
-
-Click **Save Changes**, and your app should be ready to run 🚀
-
-## Other resources
-
--   Read **[the documentation](https://discord.com/developers/docs/intro)** for in-depth information about API features.
--   Browse the `examples/` folder in this project for smaller, feature-specific code examples
--   Join the **[Discord Developers server](https://discord.gg/discord-developers)** to ask questions about the API, attend events hosted by the Discord API team, and interact with other devs.
--   Check out **[community resources](https://discord.com/developers/docs/topics/community-resources#community-resources)** for language-specific tools maintained by community members.
+This bot appears "offline" in Discord because it uses HTTP interactions rather than a persistent Gateway connection. It will still respond to slash commands normally.
