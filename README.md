@@ -25,7 +25,25 @@ docker load -i discord-ipbot-image.tar
 
 ```
 
-3. Run the image:
+3. Create a Discord application and bot via the [Discord Developer Portal](https://discord.com/developers/applications) and invite it to your server.
+
+The bot requires the following OAuth2 scopes:
+
+-   `bot`
+-   `applications.commands`
+    The bot requires the following permissions:
+-   `Send Messages`
+-   `Use Slash Commands`
+
+4. Create a `.env` file with the following variables:
+
+```env
+APP_ID=your_app_id_here
+DISCORD_TOKEN=your_bot_token_here
+PUBLIC_KEY=your_public_key_here
+```
+
+5. Run the image:
 
 ```bash
 docker run -d -p 3000:3000 --env-file .env discord-ipbot:latest
