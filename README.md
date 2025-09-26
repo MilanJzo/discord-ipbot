@@ -27,11 +27,13 @@ docker load -i discord-ipbot-image.tar
 
 3. Create a Discord application and bot via the [Discord Developer Portal](https://discord.com/developers/applications) and invite it to your server.
 
-The bot requires the following OAuth2 scopes:
+### The bot requires the following OAuth2 scopes:
 
 -   `bot`
 -   `applications.commands`
-    The bot requires the following permissions:
+
+### The bot requires the following permissions:
+
 -   `Send Messages`
 -   `Use Slash Commands`
 
