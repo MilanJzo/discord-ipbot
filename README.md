@@ -28,7 +28,7 @@ Create a Discord application and bot via the [Discord Developer Portal](https://
 -   `Send Messages`
 -   `Use Slash Commands`
 
-## Setup
+## Setup the Backend
 
 1. Download the Docker image from [Releases](https://github.com/MilanJzo/discord-ipbot/releases)
 
