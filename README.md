@@ -53,20 +53,3 @@ PUBLIC_KEY=your_public_key_here
 docker run -d -p 3000:3000 --env-file .env discord-ipbot:latest
 
 ```
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Bot appears offline**: This is normal for HTTP interaction bots
-2. **Health check failing**: Ensure port 3000 is accessible
-
-### Debug Commands
-
-```bash
-# Check bot health
-curl http://localhost:3000/health
-
-# View Docker logs
-docker-compose logs -f discord-bot
-```
