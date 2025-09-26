@@ -53,3 +53,7 @@ PUBLIC_KEY=your_public_key_here
 docker run -d -p 3000:3000 --env-file .env discord-ipbot:latest
 
 ```
+
+5. Connect your Backend to the Application:
+
+Expose your local server to the internet. And then point the "Interactions Endpoint URL" in the Discord Developer Portal under "General Information" to your Server (e.g., `https://your-domain-goes-here/interactions`).
